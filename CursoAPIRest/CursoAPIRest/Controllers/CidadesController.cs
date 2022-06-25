@@ -7,11 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CursoAPIRest.Data;
 using CursoAPIRest.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CursoAPIRest.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CidadesController : ControllerBase
     {
         private readonly MeuBancoContext _context; // Injeção de Dependência

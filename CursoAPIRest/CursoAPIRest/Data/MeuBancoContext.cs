@@ -9,11 +9,13 @@ namespace CursoAPIRest.Data
 {
     public class MeuBancoContext : DbContext
     {
-        public MeuBancoContext (DbContextOptions<MeuBancoContext> options)
+        public MeuBancoContext(DbContextOptions<MeuBancoContext> options)
             : base(options)
         {
         }
 
         public DbSet<CursoAPIRest.Models.Cidades> Cidades { get; set; }
+
+        public DbSet<Clientes> Clientes { get; set; }
     }
 }
