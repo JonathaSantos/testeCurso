@@ -42,6 +42,20 @@ namespace CursoAPIRest.Controllers
             return cidades;
         }
 
+        [HttpGet]
+        [Route("GetByName/{nome}")]
+        public async Task<ActionResult<IEnumerable<Cidades>>> GetByNameCidades(string nome)
+        {
+            List<Cidades> cidades = await _context.Cidades.Where(c => c.Nome_cidade.Contains(nome)).ToListAsync();
+
+            if (cidades == null || cidades.Count <= 0)
+            {
+                return NotFound($"Não existe a cidade {nome}");
+            }
+
+            return cidades;
+        }
+
         // PUT: api/Cidades/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
